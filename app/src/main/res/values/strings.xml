@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ProjectGamePars</string>
+    <string name="btn_init_play">Jugar</string>
+    <string name="btn_init_exit">Salir</string>
+    <string name="wallpaper">walpaper_appp</string>
+
+</resources>
