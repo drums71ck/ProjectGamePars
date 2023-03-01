@@ -9,4 +9,3 @@ class Game : Activity(){
         setContentView(R.layout.game)
     }
 }
- 
