@@ -75,6 +75,10 @@
                 android:layout_column="3">
             </ImageButton>
         </TableRow>
+        <LinearLayout>
+            android:layout_width="match_parent"
+
+        </LinearLayout>
 
     </TableLayout>
 
