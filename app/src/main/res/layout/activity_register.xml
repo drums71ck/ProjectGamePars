@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="30dp">
+        <!-- Form of the mail -->
+        <EditText
+            android:id="@+id/correoEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/correoEt"/>
+        <!-- Name of the Player -->
+        <EditText
+            android:id="@+id/nombreEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nombreEt"/>
+        <!-- Form of the password -->
+        <EditText
+            android:id="@+id/passEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/passEt"/>
+
+        <!-- Date Actual -->
+        <TextView
+            android:id="@+id/fechaEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/fechaTxt"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"/>
+        <!-- Btn Of Enter -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Registrar"
+            android:layout_marginTop="10dp"/>
+        
+        
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

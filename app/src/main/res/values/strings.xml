@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">ProjectGamePars</string>
-    <string name="btn_init_play">Jugar</string>
+    <string name="btn_init_register" translatable="false">Register</string>
     <string name="btn_init_exit">Salir</string>
     <string name="wallpaper">walpaper_appp</string>
-
+    <string name="btn_init_login" translatable="false">Login</string>
+    <string name="correoEt">E-mail</string>
+    <string name="nombreEt">Nickname</string>
+    <string name="passEt">Password</string>
+    <string name="Registrar">REGISTER</string>
+    <string name="fechaTxt">Data</string>
 </resources>
