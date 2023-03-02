@@ -27,6 +27,8 @@ class MainActivity2 : AppCompatActivity() {
 
         login.setOnClickListener(View.OnClickListener {
             println("Login Window...")
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
         })
     }
     private fun startRegister() {

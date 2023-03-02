@@ -1,5 +1,6 @@
 package com.example.projectgamepars
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -99,9 +100,15 @@ class Register : AppCompatActivity() {
             dadesJugador.put ("Puntuacio", puntuacio.toString())
             var database: FirebaseDatabase = FirebaseDatabase.getInstance("https://mymemory-f114e-default-rtdb.europe-west1.firebasedatabase.app/")
             var reference: DatabaseReference = database.getReference("DATABASE PLAYERS")
+            //Put the users
             if(reference != null){
+                Log.i ("MYTAG", reference.toString())
+                Log.i ("MYTAG", uidString)
+                Log.i ("MYTAG", dadesJugador.toString())
                 reference.child(uidString).setValue(dadesJugador)
                 Toast.makeText(this, "User Registered",Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity2::class.java)
+                startActivity(intent)
             }else{
                 Toast.makeText(this, "ErrorBD", Toast.LENGTH_SHORT).show()
             }
