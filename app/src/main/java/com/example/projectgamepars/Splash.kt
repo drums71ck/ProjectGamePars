@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 
 class Splash() : AppCompatActivity() {
 
-    val DURATION: Long = 3000
+    val DURATION: Long = 4500
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,11 +19,11 @@ class Splash() : AppCompatActivity() {
         supportActionBar?.hide()
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
-        val fondoApp = findViewById<ImageView>(R.id.wallApp)
+        val fondoApp = findViewById<ImageView>(R.id.my_gif_view)
 
 
 
-        Glide.with(this).load(R.drawable.wallpaperapp).into(fondoApp)
+        Glide.with(this).load(R.drawable.memory).into(fondoApp)
 
         cambiarActivity()
 

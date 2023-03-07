@@ -121,10 +121,18 @@ class Game : Activity(){
         cargarTxt()
         cargarImagenes()
         arrayDesordenado = barajar(imagenes.size)
+        // Asign the image from array
         for (i in 0 until tablero.size){
             tablero[i]!!.scaleType = ImageView.ScaleType.CENTER_CROP
             tablero[i]!!.setImageResource(imagenes[arrayDesordenado.get(i)])
         }
+        Handler().postDelayed({
+            for (i in 0 until tablero.size){
+                tablero[i]!!.scaleType = ImageView.ScaleType.CENTER_CROP
+                tablero[i]!!.setImageResource(fondo)
+            }
+        }, 1000)
+
     }
 
 }
