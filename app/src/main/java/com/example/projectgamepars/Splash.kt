@@ -32,6 +32,7 @@ class Splash() : AppCompatActivity() {
     }
 
     private fun musicPlayer() {
+        //usa mp
         val mp = MediaPlayer.create(this, R.raw.music)
         mp.start()
     }
