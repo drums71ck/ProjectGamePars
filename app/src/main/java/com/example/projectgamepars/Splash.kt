@@ -16,11 +16,12 @@ class Splash() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        musicPlayer()
+
         supportActionBar?.hide()
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
-
+        playMusic()
         val fondoApp = findViewById<ImageView>(R.id.my_gif_view)
+
 
 
         Glide.with(this).load(R.drawable.memory).into(fondoApp)
@@ -31,10 +32,10 @@ class Splash() : AppCompatActivity() {
 
     }
 
-    private fun musicPlayer() {
-        //usa mp
+    private fun playMusic() {
         val mp = MediaPlayer.create(this, R.raw.music)
         mp.start()
+
     }
 
     private fun cambiarActivity(){

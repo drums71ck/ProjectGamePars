@@ -49,10 +49,9 @@ class Login : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "Loguin epic")
+                    Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user)
-                    goToGame()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
@@ -65,12 +64,9 @@ class Login : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
-
-        print("aqiu estas")
-        finish()
-    }
-    private fun goToGame(){
         val intent= Intent(this, Game::class.java)
         startActivity(intent)
+        print("aqiu estas")
+        finish()
     }
 }

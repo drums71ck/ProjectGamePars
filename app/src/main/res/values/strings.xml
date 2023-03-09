@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">Memory</string>
+    <string name="app_name">ProjectGamePars</string>
+    <string name="btn_init_register" translatable="false">Registrar</string>
+    <string name="btn_init_exit">Salir</string>
+    <string name="wallpaper" translatable="false">walpaper_appp</string>
+    <string name="btn_init_login" translatable="false">Acceder</string>
+    <string name="correoEt" translatable="false">E-mail</string>
+    <string name="nombreEt">Nombre</string>
+    <string name="passEt">Contraseña</string>
+    <string name="Registrar" translatable="false">REGISTRAR</string>
+    <string name="fechaTxt">Fecha</string>
+    <string name="correoLogin" translatable="false">E-mail</string>
+    <string name="passLogin">Contraseña</string>
+    <string name="btnLogin">ENTRAR</string>
+    <string name="btn_juego_reiniciar">Reiniciar</string>
 </resources>
