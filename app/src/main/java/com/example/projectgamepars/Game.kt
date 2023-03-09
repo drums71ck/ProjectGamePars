@@ -2,14 +2,12 @@ package com.example.projectgamepars
 
 import android.app.Activity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
-import  androidx.annotation.Nullable
-import  android.os.Handler
-import android.widget.ImageView
+import android.os.Handler
+import android.widget.*
+import androidx.core.os.postDelayed
 import java.util.Arrays
 import java.util.Collections
+
 
 class Game : Activity(){
     // Variables of Carts
@@ -35,10 +33,11 @@ class Game : Activity(){
     var imagenes = IntArray(8)
     var fondo: Int = 0
     var arrayDesordenado = ArrayList<Int>()
-    lateinit var primero:ImageButton
-    val numeroPrimero = Int
-    val numeroSegundo = Int
-    val bloqueo : Boolean = false
+
+    var numeroPrimero : Int? = null
+    var numeroSegundo : Int? = null
+    var bloqueo : Boolean = false
+    var primero: ImageButton? = null
     final val  handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,10 +92,10 @@ class Game : Activity(){
             R.drawable.la1,
             R.drawable.la2,
             R.drawable.la3,
-            R.drawable.la4,
+            /*R.drawable.la4,
             R.drawable.la5,
             R.drawable.la6,
-            R.drawable.la7
+            R.drawable.la7*/
         )
         fondo = R.drawable.fondo
     }
@@ -106,14 +105,54 @@ class Game : Activity(){
         var result = ArrayList<Int>()
         for (i in 0 until longitud*2){ //bajara el array y añadira la nueva array como la principal
             result.add(i % longitud)
-            println(result)
 
         }
+        println(result)
         Collections.shuffle(result)
         println(Arrays.toString(result.toArray()))
         return result
 
     }
+    private fun comprobar(i: Int, imgb: ImageButton) {
+        if (primero == null) {
+            primero = imgb
+            primero!!.scaleType = ImageView.ScaleType.CENTER_CROP
+            primero!!.setImageResource(imagenes[arrayDesordenado[i]])
+            primero!!.isEnabled = false
+            numeroPrimero = arrayDesordenado[i]
+        } else {
+            bloqueo = true
+            imgb.scaleType = ImageView.ScaleType.CENTER_CROP
+            imgb.setImageResource(imagenes[arrayDesordenado[i]])
+            imgb.isEnabled = false
+            numeroSegundo = arrayDesordenado[i]
+            if (numeroPrimero == numeroSegundo) {
+                primero = null
+                bloqueo = false
+                aciertos++
+                puntuacion++
+                txtPuntuacion.text = "Puntuación: "+puntuacion
+                if (aciertos == imagenes.size) {
+                    val toast = Toast.makeText(applicationContext, "¡Has ganado!", Toast.LENGTH_LONG)
+                    toast.show()
+                }
+            } else {
+                handler.postDelayed({
+                    primero!!.scaleType = ImageView.ScaleType.CENTER_CROP
+                    primero!!.setImageResource(fondo)
+                    primero!!.isEnabled = true
+                    imgb.scaleType = ImageView.ScaleType.CENTER_CROP
+                    imgb.setImageResource(fondo)
+                    imgb.isEnabled = true
+                    bloqueo = false
+                    primero = null
+                    puntuacion--
+                    txtPuntuacion.text = "Puntuación: "+puntuacion
+                }, 1000)
+            }
+        }
+    }
+
 
     fun init(){
         cargarTablero()
@@ -126,12 +165,21 @@ class Game : Activity(){
             tablero[i]!!.scaleType = ImageView.ScaleType.CENTER_CROP
             tablero[i]!!.setImageResource(imagenes[arrayDesordenado.get(i)])
         }
+        // Time to show the carts
         Handler().postDelayed({
             for (i in 0 until tablero.size){
                 tablero[i]!!.scaleType = ImageView.ScaleType.CENTER_CROP
                 tablero[i]!!.setImageResource(fondo)
             }
         }, 1000)
+        for (i in 0 until tablero.size){
+            tablero[i]!!.isEnabled = true
+            tablero[i]!!.setOnClickListener(){
+                if(!bloqueo){
+                    comprobar(i, tablero[i]!!)
+                }
+            }
+        }
 
     }
 
