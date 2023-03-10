@@ -16,27 +16,47 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
+
         android:padding="30dp">
         <!-- Form of the mail -->
-        <EditText
-            android:id="@+id/correoEt"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="@string/correoEt"/>
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/correoEt"
+                android:textColorHint="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:background="@color/gris"
+                android:hint="@string/correoEt"/>
+        </com.google.android.material.textfield.TextInputLayout>
         <!-- Name of the Player -->
-        <EditText
-            android:id="@+id/nombreEt"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nombreEt"/>
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/nombreEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nombreEt"
+                android:background="@color/gris"
+                android:textColorHint="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
         <!-- Form of the password -->
-        <EditText
-            android:id="@+id/passEt"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="@string/passEt"/>
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/passEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/passEt"
+                android:background="@color/gris"
+                android:textColorHint="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Date Actual -->
         <TextView
@@ -46,16 +66,18 @@
             android:gravity="center"
             android:hint="@string/fechaTxt"
             android:textSize="20sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:background="@color/gris"/>
         <!-- Btn Of Enter -->
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Registrar"
-            android:layout_marginTop="10dp"/>
-        
-        
+            android:layout_marginTop="10dp"
+            android:background="@color/gris"/>
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
