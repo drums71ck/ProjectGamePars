@@ -1,16 +1,14 @@
 package com.example.projectgamepars
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.*
-import androidx.core.os.postDelayed
 import java.util.Arrays
 import java.util.Collections
 
 
-class Game2 : Activity(){
+class Game3 : Activity(){
     // Variables of Carts
     lateinit var  imb00: ImageButton
     lateinit var  imb01: ImageButton
@@ -24,21 +22,23 @@ class Game2 : Activity(){
     lateinit var  imb09: ImageButton
     lateinit var  imb10: ImageButton
     lateinit var  imb11: ImageButton
+    lateinit var  imb12: ImageButton
+    lateinit var  imb13: ImageButton
+    lateinit var  imb14: ImageButton
+    lateinit var  imb15: ImageButton
+
     // Tablero
-    val tablero = arrayOfNulls<ImageButton>(12)
+    val tablero = arrayOfNulls<ImageButton>(16)
     // Botones
     lateinit var btnReiniciar : Button
     lateinit var btnSalir : Button
     // Text
     lateinit var txtPuntuacion : TextView
-    companion object {
-        var puntuacion = 0
-    }
-
+    var puntuacion: Int = 0
     var aciertos:Int = 0
 
     //Imagenes
-    var imagenes = IntArray(12)
+    var imagenes = IntArray(16)
     var fondo: Int = 0
     var arrayDesordenado = ArrayList<Int>()
 
@@ -50,7 +50,7 @@ class Game2 : Activity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game2)
+        setContentView(R.layout.activity_game3)
         init()
     }
 
@@ -67,6 +67,10 @@ class Game2 : Activity(){
         imb09 = findViewById(R.id.boton09)
         imb10 = findViewById(R.id.boton10)
         imb11 = findViewById(R.id.boton11)
+        imb12 = findViewById(R.id.boton12)
+        imb13 = findViewById(R.id.boton13)
+        imb14 = findViewById(R.id.boton14)
+        imb15 = findViewById(R.id.boton15)
 
         tablero[0] = imb00
         tablero[1] = imb01
@@ -80,6 +84,10 @@ class Game2 : Activity(){
         tablero[9] = imb09
         tablero[10] = imb10
         tablero[11] = imb11
+        tablero[12] = imb12
+        tablero[13] = imb13
+        tablero[14] = imb14
+        tablero[15] = imb15
 
 
     }
@@ -89,7 +97,7 @@ class Game2 : Activity(){
         btnSalir = findViewById(R.id.btnJuegoSalir)
 
         btnReiniciar.setOnClickListener(){
-            goToGame3()
+            init()
         }
 
         btnSalir.setOnClickListener(){
@@ -97,14 +105,9 @@ class Game2 : Activity(){
         }
     }
 
-    private fun goToGame3() {
-        val intent= Intent(this, Game3::class.java)
-        startActivity(intent)
-    }
-
     fun cargarTxt(){
         txtPuntuacion = findViewById(R.id.txt_puntuacion)
-        puntuacion = Game.puntuacion
+        puntuacion = Game2.puntuacion
         txtPuntuacion.setText("Puntacion: "+puntuacion)
     }
 
@@ -116,9 +119,8 @@ class Game2 : Activity(){
             R.drawable.la3,
             R.drawable.la4,
             R.drawable.la5,
-            /*
             R.drawable.la6,
-            R.drawable.la7*/
+            R.drawable.la7
         )
         fondo = R.drawable.fondo
     }
@@ -194,7 +196,7 @@ class Game2 : Activity(){
                 tablero[i]!!.scaleType = ImageView.ScaleType.CENTER_CROP
                 tablero[i]!!.setImageResource(fondo)
             }
-        }, 2000)
+        }, 3000)
         for (i in 0 until tablero.size){
             tablero[i]!!.isEnabled = true
             tablero[i]!!.setOnClickListener(){

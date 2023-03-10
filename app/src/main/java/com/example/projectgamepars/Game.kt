@@ -1,6 +1,7 @@
 package com.example.projectgamepars
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.*
@@ -26,7 +27,9 @@ class Game : Activity(){
     lateinit var btnSalir : Button
     // Text
     lateinit var txtPuntuacion : TextView
-    var puntuacion: Int = 0
+    companion object {
+        var puntuacion = 0
+    }
     var aciertos:Int = 0
 
     //Imagenes
@@ -73,12 +76,17 @@ class Game : Activity(){
         btnSalir = findViewById(R.id.btnJuegoSalir)
 
         btnReiniciar.setOnClickListener(){
-            init()
+            goToGame2()
         }
 
         btnSalir.setOnClickListener(){
             finish()
         }
+    }
+
+    private fun goToGame2() {
+        val intent= Intent(this, Game2::class.java)
+        startActivity(intent)
     }
 
     fun cargarTxt(){
@@ -137,6 +145,7 @@ class Game : Activity(){
                     toast.show()
                 }
             } else {
+                // Time of revelation cart
                 handler.postDelayed({
                     primero!!.scaleType = ImageView.ScaleType.CENTER_CROP
                     primero!!.setImageResource(fondo)

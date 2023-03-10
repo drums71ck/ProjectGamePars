@@ -12,5 +12,5 @@
     <string name="correoLogin" translatable="false">E-mail</string>
     <string name="passLogin">Contraseña</string>
     <string name="btnLogin">ENTRAR</string>
-    <string name="btn_juego_reiniciar">Reiniciar</string>
+    <string name="btn_juego_reiniciar">Siguiente Nivel</string>
 </resources>
