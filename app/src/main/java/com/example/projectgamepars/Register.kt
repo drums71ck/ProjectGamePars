@@ -54,15 +54,9 @@ class Register : AppCompatActivity() {
                 RegisterPlayer(email, pass)
             }
 
-
-
-
         }
 
-
-
     }
-
 
 
     private fun RegisterPlayer(email: String, pass: String) {
@@ -79,9 +73,7 @@ class Register : AppCompatActivity() {
                         Toast.LENGTH_SHORT).show()
                     //updateUI(null)
                 }
-
             }
-
     }
     fun updateUI(user:FirebaseUser?){
         if(user!=null){
@@ -118,8 +110,6 @@ class Register : AppCompatActivity() {
             Toast.makeText(this,"error create user :(",Toast.LENGTH_SHORT).show()
         }
 
-
     }
-
 
 }
