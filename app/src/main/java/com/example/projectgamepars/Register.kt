@@ -90,7 +90,7 @@ class Register : AppCompatActivity() {
             dadesJugador.put ("Nom",nombreString)
             dadesJugador.put ("Data",fechaString)
             dadesJugador.put ("Puntuacio", puntuacio.toString())
-            var database: FirebaseDatabase = FirebaseDatabase.getInstance("https://mymemory-f114e-default-rtdb.europe-west1.firebasedatabase.app/")
+            var database: FirebaseDatabase = FirebaseDatabase.getInstance("https://mymemory-f114e-default-rtdb.europe-west1.firebasedatabase.app")
             var reference: DatabaseReference = database.getReference("DATABASE PLAYERS")
             //Put the users
             if(reference != null){

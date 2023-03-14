@@ -22,7 +22,7 @@ class MainActivity2 : AppCompatActivity() {
 
         //Function Btn Exit
         exit.setOnClickListener(View.OnClickListener {
-            finish()
+            finishAffinity()
         })
 
         login.setOnClickListener(View.OnClickListener {

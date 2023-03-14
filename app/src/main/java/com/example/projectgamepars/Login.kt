@@ -13,9 +13,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class Login : AppCompatActivity() {
+
     lateinit var correoLogin : EditText
-    lateinit var  passLogin : EditText
+
+    lateinit var passLogin : EditText
     lateinit var btnLogin : Button
+    companion object{
+    var usEMail : String? = null
+    }
     lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +33,7 @@ class Login : AppCompatActivity() {
 
         btnLogin.setOnClickListener(){
             var email:String = correoLogin.getText().toString()
+
             var passw:String = passLogin.getText().toString()
             //Validacion
 
@@ -44,6 +50,8 @@ class Login : AppCompatActivity() {
         }
     }
 
+
+
     private fun LoginDeJugador(email: String, passw: String) {
         auth.signInWithEmailAndPassword(email, passw)
             .addOnCompleteListener(this) { task ->
@@ -51,6 +59,7 @@ class Login : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
+                    usEMail = email
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.

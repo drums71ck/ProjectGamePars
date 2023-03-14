@@ -4,8 +4,13 @@ import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.util.Arrays
 import java.util.Collections
+
 
 
 class Game3 : Activity(){
@@ -109,6 +114,7 @@ class Game3 : Activity(){
         txtPuntuacion = findViewById(R.id.txt_puntuacion)
         puntuacion = Game2.puntuacion
         txtPuntuacion.setText("Puntacion: "+puntuacion)
+        updatePuntation(puntuacion)
     }
 
     fun cargarImagenes(){
@@ -177,9 +183,36 @@ class Game3 : Activity(){
             }
         }
     }
+    fun updatePuntation(puntuacion: Int) {
+        var database: FirebaseDatabase = FirebaseDatabase.getInstance("https://mymemory-f114e-default-rtdb.europe-west1.firebasedatabase.app")
+        val userRef = database.getReference("DATABASE PLAYERS")
+        val email = Login.usEMail
+        Toast.makeText(this, email,Toast.LENGTH_SHORT).show()
+        val query = userRef.orderByChild("Email").equalTo(email)
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (userSnapshot in dataSnapshot.children) {
+                    val userKey = userSnapshot.key
+                    // Realizar la actualización de la puntuación del usuario
+                    val newScore = puntuacion.toString() // nueva puntuación del usuario
+                    if (userKey != null) {
+                        var punt = userRef.child(userKey).child("Puntuacio").get().toString()
+                        userRef.child(userKey).child("Puntuacio").setValue(newScore)
+
+                    }
 
 
-    fun init(){
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                print("error")
+            }
+        })
+
+    }
+
+        fun init(){
         cargarTablero()
         cargarBtn()
         cargarTxt()

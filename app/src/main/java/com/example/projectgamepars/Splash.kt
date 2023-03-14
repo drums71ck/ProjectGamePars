@@ -31,6 +31,11 @@ class Splash() : AppCompatActivity() {
 
 
     }
+    override fun onRestart() {
+        super.onRestart()
+        playMusic()
+
+    }
 
     private fun playMusic() {
         val mp = MediaPlayer.create(this, R.raw.music)
