@@ -1,9 +1,12 @@
 package com.example.projectgamepars
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.widget.*
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -35,7 +38,7 @@ class Game3 : Activity(){
     // Tablero
     val tablero = arrayOfNulls<ImageButton>(16)
     // Botones
-    lateinit var btnReiniciar : Button
+    lateinit var btnNext : Button
     lateinit var btnSalir : Button
     // Text
     lateinit var txtPuntuacion : TextView
@@ -56,6 +59,8 @@ class Game3 : Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game3)
+        btnNext = findViewById(R.id.btnJuegoReiniciar)
+        btnNext.isEnabled = false
         init()
     }
 
@@ -98,10 +103,10 @@ class Game3 : Activity(){
     }
 
     fun cargarBtn(){
-        btnReiniciar = findViewById(R.id.btnJuegoReiniciar)
+        btnNext = findViewById(R.id.btnJuegoReiniciar)
         btnSalir = findViewById(R.id.btnJuegoSalir)
 
-        btnReiniciar.setOnClickListener(){
+        btnNext.setOnClickListener(){
             init()
         }
 
@@ -114,7 +119,7 @@ class Game3 : Activity(){
         txtPuntuacion = findViewById(R.id.txt_puntuacion)
         puntuacion = Game2.puntuacion
         txtPuntuacion.setText("Puntacion: "+puntuacion)
-        updatePuntation(puntuacion)
+
     }
 
     fun cargarImagenes(){
@@ -164,8 +169,9 @@ class Game3 : Activity(){
                 puntuacion++
                 txtPuntuacion.text = "Puntuación: "+puntuacion
                 if (aciertos == imagenes.size) {
-                    val toast = Toast.makeText(applicationContext, "¡Has ganado!", Toast.LENGTH_LONG)
+                    val toast = Toast.makeText(applicationContext, "¡New PR!", Toast.LENGTH_LONG)
                     toast.show()
+                    updatePuntation(puntuacion)
                 }
             } else {
                 handler.postDelayed({
@@ -183,23 +189,34 @@ class Game3 : Activity(){
             }
         }
     }
+    // Actualizar puntuacion
     fun updatePuntation(puntuacion: Int) {
+        val auth = FirebaseAuth.getInstance()
+        val USERUID = auth.uid!!
         var database: FirebaseDatabase = FirebaseDatabase.getInstance("https://mymemory-f114e-default-rtdb.europe-west1.firebasedatabase.app")
         val userRef = database.getReference("DATABASE PLAYERS")
         val email = Login.usEMail
+
         Toast.makeText(this, email,Toast.LENGTH_SHORT).show()
         val query = userRef.orderByChild("Email").equalTo(email)
+
+
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (userSnapshot in dataSnapshot.children) {
                     val userKey = userSnapshot.key
                     // Realizar la actualización de la puntuación del usuario
                     val newScore = puntuacion.toString() // nueva puntuación del usuario
-                    if (userKey != null) {
-                        var punt = userRef.child(userKey).child("Puntuacio").get().toString()
+                    val stats=
+                        dataSnapshot.child(USERUID).child("Puntuacio").value.toString()
+                    val intStatus = stats.toInt()
+
+                    if (userKey != null && puntuacion>intStatus) {
+                        userRef.child(userKey).child("Puntuacio")
                         userRef.child(userKey).child("Puntuacio").setValue(newScore)
 
                     }
+
 
 
                 }
@@ -229,7 +246,7 @@ class Game3 : Activity(){
                 tablero[i]!!.scaleType = ImageView.ScaleType.CENTER_CROP
                 tablero[i]!!.setImageResource(fondo)
             }
-        }, 3000)
+        }, 3500)
         for (i in 0 until tablero.size){
             tablero[i]!!.isEnabled = true
             tablero[i]!!.setOnClickListener(){

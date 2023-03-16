@@ -13,7 +13,7 @@ class MainActivity2 : AppCompatActivity() {
         var register: Button = findViewById(R.id.btnRegister)
         var exit: Button = findViewById(R.id.btnExit)
         var login: Button = findViewById(R.id.btnLogin)
-
+        var laderboar: Button = findViewById(R.id.btnLaderboard)
         // Fuction Btn Register
         register.setOnClickListener(View.OnClickListener {
             println("Register Window...")
@@ -30,10 +30,18 @@ class MainActivity2 : AppCompatActivity() {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         })
+        laderboar.setOnClickListener(){
+            goToLaderboard()
+
+        }
     }
     private fun startRegister() {
         // Go to the scene of game
         val startScene = Intent(this, Register::class.java)
+        startActivity(startScene)
+    }
+    private fun goToLaderboard(){
+        val startScene = Intent(this, Laderboard::class.java)
         startActivity(startScene)
     }
 }

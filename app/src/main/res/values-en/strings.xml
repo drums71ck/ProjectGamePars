@@ -11,4 +11,5 @@
     <string name="btnLogin">Enter</string>
     <string name="passLogin">Password</string>
     <string name="btn_juego_reiniciar">Next Level</string>
+    <string name="strLaderboard">Laderboard</string>
 </resources>

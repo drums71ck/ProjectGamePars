@@ -28,6 +28,7 @@ class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        // VARIABLES TEXTVIEW
         correoEt = findViewById<EditText>(R.id.correoEt)
         passEt = findViewById<EditText>(R.id.passEt)
         nicknameEt = findViewById<EditText>(R.id.nombreEt)

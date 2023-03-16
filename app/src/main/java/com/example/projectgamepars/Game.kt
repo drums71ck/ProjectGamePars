@@ -46,6 +46,8 @@ class Game : Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game)
+        btnReiniciar = findViewById(R.id.btnJuegoReiniciar)
+        btnReiniciar.isEnabled = false
         init()
     }
 
@@ -143,6 +145,7 @@ class Game : Activity(){
                 if (aciertos == imagenes.size) {
                     val toast = Toast.makeText(applicationContext, "¡Has ganado!", Toast.LENGTH_LONG)
                     toast.show()
+                    btnReiniciar.isEnabled = true
                 }
             } else {
                 // Time of revelation cart
@@ -180,7 +183,7 @@ class Game : Activity(){
                 tablero[i]!!.scaleType = ImageView.ScaleType.CENTER_CROP
                 tablero[i]!!.setImageResource(fondo)
             }
-        }, 1000)
+        }, 1500)
         for (i in 0 until tablero.size){
             tablero[i]!!.isEnabled = true
             tablero[i]!!.setOnClickListener(){

@@ -51,6 +51,8 @@ class Game2 : Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game2)
+        btnReiniciar = findViewById(R.id.btnJuegoReiniciar)
+        btnReiniciar.isEnabled = false
         init()
     }
 
@@ -158,6 +160,7 @@ class Game2 : Activity(){
                 if (aciertos == imagenes.size) {
                     val toast = Toast.makeText(applicationContext, "¡Has ganado!", Toast.LENGTH_LONG)
                     toast.show()
+                    btnReiniciar.isEnabled=true
                 }
             } else {
                 handler.postDelayed({
@@ -194,7 +197,7 @@ class Game2 : Activity(){
                 tablero[i]!!.scaleType = ImageView.ScaleType.CENTER_CROP
                 tablero[i]!!.setImageResource(fondo)
             }
-        }, 2000)
+        }, 2500)
         for (i in 0 until tablero.size){
             tablero[i]!!.isEnabled = true
             tablero[i]!!.setOnClickListener(){
