@@ -73,7 +73,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
-        val intent= Intent(this, Game::class.java)
+        val intent= Intent(this, /* MainActivity3*/ MainActivity3::class.java)
         startActivity(intent)
         print("aqiu estas")
         finish()

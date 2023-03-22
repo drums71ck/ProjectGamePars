@@ -111,7 +111,7 @@ class Game3 : Activity(){
         }
 
         btnSalir.setOnClickListener(){
-            finish()
+            finishAffinity()
         }
     }
 
@@ -169,7 +169,7 @@ class Game3 : Activity(){
                 puntuacion++
                 txtPuntuacion.text = "Puntuación: "+puntuacion
                 if (aciertos == imagenes.size) {
-                    val toast = Toast.makeText(applicationContext, "¡New PR!", Toast.LENGTH_LONG)
+                    val toast = Toast.makeText(applicationContext, "¡has ganado!", Toast.LENGTH_LONG)
                     toast.show()
                     updatePuntation(puntuacion)
                 }
@@ -214,6 +214,8 @@ class Game3 : Activity(){
                     if (userKey != null && puntuacion>intStatus) {
                         userRef.child(userKey).child("Puntuacio")
                         userRef.child(userKey).child("Puntuacio").setValue(newScore)
+                        val toast = Toast.makeText(applicationContext, "¡NEW Personal Record!", Toast.LENGTH_LONG)
+
 
                     }
 

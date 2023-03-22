@@ -14,4 +14,6 @@
     <string name="btnLogin">ENTRAR</string>
     <string name="btn_juego_reiniciar">Siguiente Nivel</string>
     <string name="strLaderboard">Tabla de Posiciones</string>
+    <string name="btn_init_play">Jugar</string>
+    <string name="btn_init_profile">Perfil</string>
 </resources>

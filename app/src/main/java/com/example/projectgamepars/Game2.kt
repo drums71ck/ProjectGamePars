@@ -95,7 +95,7 @@ class Game2 : Activity(){
         }
 
         btnSalir.setOnClickListener(){
-            finish()
+            finishAffinity()
         }
     }
 
