@@ -14,4 +14,6 @@
     <string name="strLaderboard">Laderboard</string>
     <string name="btn_init_play">Play</string>
     <string name="btn_init_profile">Profile</string>
+    <string name="btnInicio">Remake</string>
+    <string name="btnLaderboardShow">Laderboard</string>
 </resources>

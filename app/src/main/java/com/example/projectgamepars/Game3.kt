@@ -2,10 +2,12 @@ package com.example.projectgamepars
 
 import android.app.Activity
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.widget.*
+import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -40,6 +42,8 @@ class Game3 : Activity(){
     // Botones
     lateinit var btnNext : Button
     lateinit var btnSalir : Button
+    lateinit var btnInicio : Button
+    lateinit var btnLaderboard : Button
     // Text
     lateinit var txtPuntuacion : TextView
     var puntuacion: Int = 0
@@ -59,8 +63,10 @@ class Game3 : Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game3)
-        btnNext = findViewById(R.id.btnJuegoReiniciar)
-        btnNext.isEnabled = false
+        btnInicio = findViewById(R.id.btnInicio)
+        btnLaderboard = findViewById(R.id.btnLaderboard)
+        btnInicio.isEnabled = false
+        btnLaderboard.isVisible = false
         init()
     }
 
@@ -103,15 +109,23 @@ class Game3 : Activity(){
     }
 
     fun cargarBtn(){
-        btnNext = findViewById(R.id.btnJuegoReiniciar)
-        btnSalir = findViewById(R.id.btnJuegoSalir)
 
-        btnNext.setOnClickListener(){
-            init()
+        btnSalir = findViewById(R.id.btnJuegoSalir)
+        btnInicio = findViewById(R.id.btnInicio)
+        btnLaderboard = findViewById(R.id.btnLaderboard)
+
+        btnInicio.setOnClickListener(){
+            Game.puntuacion = 0
+            val intent= Intent(this, Game::class.java)
+            startActivity(intent)
         }
 
         btnSalir.setOnClickListener(){
             finishAffinity()
+        }
+        btnLaderboard.setOnClickListener(){
+            val intent = Intent(this, Laderboard::class.java)
+            startActivity(intent)
         }
     }
 
@@ -172,6 +186,9 @@ class Game3 : Activity(){
                     val toast = Toast.makeText(applicationContext, "¡has ganado!", Toast.LENGTH_LONG)
                     toast.show()
                     updatePuntation(puntuacion)
+                    btnInicio.isEnabled = true
+                    btnLaderboard.isVisible = true
+                    
                 }
             } else {
                 handler.postDelayed({
