@@ -18,4 +18,11 @@
     <string name="btn_init_profile">Perfil</string>
     <string name="btnInicio">Reiniciar</string>
     <string name="btnLaderboardShow">Tablas</string>
+    <string name="strCredits">Creditos</string>
+    <string name="dam">CFGS Desarrollo de Aplicaciones Multiplataforma</string>
+    <string name="fecha">28 Marzo 2023</string>
+    <string name="btn_init_return">Volver</string>
+    <string name="hello_blank_fragment" translatable="false">Oriol Gassó</string>
+    <string name="hello_blank_fragment2" translatable="false">Eduardo Apaza</string>
+    <string name="hello_blank_fragment3">Programadores</string>
 </resources>

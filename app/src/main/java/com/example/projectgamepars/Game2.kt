@@ -2,6 +2,7 @@ package com.example.projectgamepars
 
 import android.app.Activity
 import android.content.Intent
+import android.media.SoundPool
 import android.os.Bundle
 import android.os.Handler
 import android.widget.*
@@ -139,6 +140,11 @@ class Game2 : Activity(){
 
     }
     private fun comprobar(i: Int, imgb: ImageButton) {
+        val soundPool = SoundPool.Builder().build()
+
+        val soundId = soundPool.load(this, R.raw.correct, 1)
+
+        val soundId2 = soundPool.load(this, R.raw.error, 1)
         if (primero == null) {
             primero = imgb
             primero!!.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -152,16 +158,20 @@ class Game2 : Activity(){
             imgb.isEnabled = false
             numeroSegundo = arrayDesordenado[i]
             if (numeroPrimero == numeroSegundo) {
-                primero = null
-                bloqueo = false
-                aciertos++
-                puntuacion++
-                txtPuntuacion.text = "Puntuación: "+puntuacion
-                if (aciertos == imagenes.size) {
-                    val toast = Toast.makeText(applicationContext, "¡Has ganado!", Toast.LENGTH_LONG)
-                    toast.show()
-                    btnReiniciar.isEnabled=true
-                }
+                handler.postDelayed({
+                    primero = null
+                    bloqueo = false
+                    aciertos++
+                    puntuacion++
+                    soundPool.play(soundId, 1.0f, 1.0f, 0, 0, 1.0f)
+                    txtPuntuacion.text = "Puntuación: "+puntuacion
+                    if (aciertos == imagenes.size) {
+                        val toast =
+                            Toast.makeText(applicationContext, "¡Has ganado!", Toast.LENGTH_LONG)
+                        toast.show()
+                        btnReiniciar.isEnabled = true
+                    }
+                }, 500)
             } else {
                 handler.postDelayed({
                     primero!!.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -173,8 +183,9 @@ class Game2 : Activity(){
                     bloqueo = false
                     primero = null
                     puntuacion--
+                    soundPool.play(soundId2, 1.0f, 1.0f, 0, 0, 1.0f)
                     txtPuntuacion.text = "Puntuación: "+puntuacion
-                }, 1000)
+                }, 500)
             }
         }
     }

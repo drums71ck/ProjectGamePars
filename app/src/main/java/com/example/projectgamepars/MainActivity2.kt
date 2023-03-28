@@ -14,6 +14,7 @@ class MainActivity2 : AppCompatActivity() {
         var exit: Button = findViewById(R.id.btnExit)
         var login: Button = findViewById(R.id.btnLogin)
         var laderboar: Button = findViewById(R.id.btnLaderboard)
+        var creditos: Button = findViewById(R.id.btnCredits)
         // Fuction Btn Register
         register.setOnClickListener(View.OnClickListener {
             println("Register Window...")
@@ -33,6 +34,10 @@ class MainActivity2 : AppCompatActivity() {
         laderboar.setOnClickListener(){
             goToLaderboard()
 
+        }
+        creditos.setOnClickListener(){
+            val intent = Intent(this, Credits::class.java)
+            startActivity(intent)
         }
     }
     private fun startRegister() {

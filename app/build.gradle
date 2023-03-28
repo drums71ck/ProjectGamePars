@@ -60,5 +60,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:ultima-version"
     implementation 'com.mikhaellopez:circularimageview:4.3.1'
     implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'androidx.fragment:fragment-ktx:1.5.5'
 
 }

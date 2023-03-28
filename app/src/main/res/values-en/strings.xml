@@ -16,4 +16,9 @@
     <string name="btn_init_profile">Profile</string>
     <string name="btnInicio">Remake</string>
     <string name="btnLaderboardShow">Laderboard</string>
+    <string name="strCredits">Credits</string>
+    <string name="dam">Multiplataform Application Development</string>
+    <string name="fecha">28th March 2023</string>
+    <string name="btn_init_return">Return</string>
+    <string name="hello_blank_fragment3">Developers</string>
 </resources>
