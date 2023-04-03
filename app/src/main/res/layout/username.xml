@@ -16,7 +16,8 @@
         android:orientation="vertical"
         android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -61,7 +62,8 @@
                 android:id="@+id/txtuserName_square"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@color/white">
 
                 <TextView
                     android:id="@+id/profile_user"

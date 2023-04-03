@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gamewall"
     android:orientation="vertical">
 
     <!--fila 1 -->
@@ -186,6 +187,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btnLaderboardShow"></Button>
+            <Button
+                android:id="@+id/btnProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_init_profile"></Button>
 
         </LinearLayout>
 
@@ -202,6 +208,7 @@
                 android:layout_height="match_parent"
                 android:textSize="25dp"
                 android:layout_gravity="center"
+                android:textColor="@color/yellow"
                 >
 
             </TextView>

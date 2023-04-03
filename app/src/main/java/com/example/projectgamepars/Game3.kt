@@ -131,6 +131,7 @@ class Game3 : Activity(){
     }
 
     fun cargarTxt(){
+
         txtPuntuacion = findViewById(R.id.txt_puntuacion)
         puntuacion = Game2.puntuacion
         txtPuntuacion.setText("Puntacion: "+puntuacion)

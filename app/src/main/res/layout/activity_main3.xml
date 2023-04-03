@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/menuwall"
     tools:context=".MainActivity2">
 
     <Button
         android:id="@+id/btnPlay"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
         android:text="@string/btn_init_play"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -19,7 +22,9 @@
     <Button
         android:id="@+id/btnExit"
         android:layout_width="0dp"
+        android:backgroundTint="@color/white"
         android:layout_height="0dp"
+        android:textColor="@color/black"
         android:text="@string/btn_init_exit"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -30,7 +35,9 @@
         android:id="@+id/btnProfile"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:backgroundTint="@color/white"
         android:text="@string/btn_init_profile"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"

@@ -22,7 +22,8 @@
                 android:orientation="vertical"
                 android:layout_marginTop="23dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white">
 
                 <TextView
                     android:id="@+id/txtName"
@@ -57,7 +58,8 @@
                     android:weightSum="3"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
 
                     <TextView
                         android:text="MAX SCORE"
@@ -75,7 +77,8 @@
                     android:weightSum="3"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
 
                     <TextView
                         android:id="@+id/maxScore"
@@ -84,7 +87,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="SCORE"
-                        android:textColor="@color/black"
+                        android:textColor="@color/yellow"
                         android:textSize="17sp"
                         android:textStyle="normal" />
 
