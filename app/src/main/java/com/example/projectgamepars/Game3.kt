@@ -45,6 +45,7 @@ class Game3 : Activity(){
     lateinit var btnSalir : Button
     lateinit var btnInicio : Button
     lateinit var btnLaderboard : Button
+    lateinit var btnPerfil : Button
     // Text
     lateinit var txtPuntuacion : TextView
     var puntuacion: Int = 0
@@ -114,6 +115,7 @@ class Game3 : Activity(){
         btnSalir = findViewById(R.id.btnJuegoSalir)
         btnInicio = findViewById(R.id.btnInicio)
         btnLaderboard = findViewById(R.id.btnLaderboard)
+        btnPerfil = findViewById(R.id.btnProfile)
 
         btnInicio.setOnClickListener(){
             Game.puntuacion = 0
@@ -126,6 +128,10 @@ class Game3 : Activity(){
         }
         btnLaderboard.setOnClickListener(){
             val intent = Intent(this, Laderboard::class.java)
+            startActivity(intent)
+        }
+        btnPerfil.setOnClickListener(){
+            val intent = Intent(this, Profile::class.java)
             startActivity(intent)
         }
     }
